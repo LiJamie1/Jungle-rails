@@ -4,6 +4,12 @@
     <h1>My Cart</h1>
   </header>
 
+  <% unless enhanced_cart.any? %>
+  <div class="empty-cart">
+    <h3>Please add items to your cart</h3>
+  </div>
+  <% else %>
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -48,5 +54,6 @@
       <% end %>
     </div>
   </div>
+  <% end %>
 
 </section>
