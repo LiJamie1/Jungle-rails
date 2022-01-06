@@ -18,8 +18,5 @@ class Admin::CategoriesController < ApplicationController
       render :new
     end
   end
-
-  def destroy
-  end
-
+  
 end
