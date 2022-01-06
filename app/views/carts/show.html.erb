@@ -4,7 +4,7 @@
     <h1>My Cart</h1>
   </header>
 
-  <% unless enhanced_cart.any? %>
+  <% if enhanced_cart.empty? %>
     <div class="alert alert-danger">
       <h3>Please add items to your cart <%= link_to 'here', root_path %></h3>
     </div>
