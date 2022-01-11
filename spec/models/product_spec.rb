@@ -19,5 +19,14 @@ RSpec.describe Product, type: :model do
       expect(@product.id).to be_present
     end
 
+    it 'should not save when missing a name' do
+      @product_params[:name] = nil
+      @product = Product.new(@product_params)
+      @product.save!
+      
+      expect(@product.id).not_to be_present
+      expect(@product.errors.full_messages).to include("Name can't be blank")  
+    end
+
   end
 end
