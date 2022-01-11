@@ -34,5 +34,12 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name can't be blank")
     end
 
+    it 'should not save if last name is blank' do
+      @user_params[:last_name] = nil
+      @user = User.create(@user_params)
+      
+      expect(@user.errors.full_messages).to include("Last name can't be blank")
+    end
+
   end
 end
