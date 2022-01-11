@@ -28,5 +28,15 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Name can't be blank")  
     end
 
+    it 'should not save when missing a price' do
+      @product_params[:price] = nil
+      @product = Product.new(@product_params)
+      @product.save
+
+      expect(@product.id).not_to be_present
+      expect(@product.errors.full_messages).to include("Price can't be blank")  
+    end
+
+    
   end
 end
