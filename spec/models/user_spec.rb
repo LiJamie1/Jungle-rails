@@ -48,5 +48,12 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Email can't be blank")
     end
 
+    it 'should not save if email is not unique' do
+      @user = User.create(@user_params)
+      @user2 = User.create(@user_params)
+      
+      expect(@user2.errors.full_messages).to include("Email has already been taken")
+    end
+
   end
 end
