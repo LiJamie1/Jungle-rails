@@ -82,5 +82,12 @@ RSpec.describe User, type: :model do
       expect(@user).to eql(@auth)
     end
 
+    it 'should not allow login with invalid credentials' do
+      @user = User.create(@user_params)
+      @auth = User.authenticate_with_credentials('test@test.test', 'password1')
+
+      expect(@auth).to eql(nil)
+    end
+
   end
 end
