@@ -65,6 +65,22 @@ RSpec.describe User, type: :model do
   end
 
   describe '.authenticate_with_credentials' do
-  end
+    before {
+      @user_params = { 
+        first_name: 'Jamie',
+        last_name: 'Li',
+        email: 'test@test.test',
+        password: 'password',
+        password_confirmation: 'password'
+       }
+    }
 
+    it 'should allow login with valid credentials' do
+      @user = User.create(@user_params)
+      @auth = User.authenticate_with_credentials('test@test.test', 'password')
+
+      expect(@user).to eql(@auth)
+    end
+
+  end
 end
