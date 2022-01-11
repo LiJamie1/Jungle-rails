@@ -27,6 +27,14 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
 
+    it 'should not save if password is too short' do
+      @user_params[:password] = 'passwor'
+      @user_params[:password_confirmation] = 'passwor'
+      @user = User.create(@user_params)
+
+      expect(@user.errors.full_messages).to include("Password is too short (minimum is 8 characters)")
+    end
+
     it 'should not save if first name is blank' do
       @user_params[:first_name] = nil
       @user = User.create(@user_params)
