@@ -46,5 +46,14 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Quantity can't be blank")  
     end
 
+    it 'should not save when missing a category' do
+      @product_params[:category] = nil
+      @product = Product.new(@product_params)
+      @product.save
+      
+      expect(@product.id).not_to be_present
+      expect(@product.errors.full_messages).to include("Category can't be blank")  
+    end
+    
   end
 end
