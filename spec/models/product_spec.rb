@@ -9,8 +9,8 @@ RSpec.describe Product, type: :model do
         price: '10000',
         quantity: '5',
         category: @category
-       }
-     }
+      }
+    }
 
     it 'should successfully save when all fields are valid' do
       @product = Product.create(@product_params)
