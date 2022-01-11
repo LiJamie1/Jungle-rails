@@ -89,5 +89,11 @@ RSpec.describe User, type: :model do
       expect(@auth).to eql(nil)
     end
 
+    it 'should allow login even if there is whitespace at the end or start of an email' do
+      @user = User.create(@user_params)
+      @auth = User.authenticate_with_credentials(' test@test.test ', 'password')
+
+      expect(@user).to eql(@auth)
+    end
   end
 end
