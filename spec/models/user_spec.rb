@@ -28,11 +28,9 @@ RSpec.describe User, type: :model do
     end
 
     it 'should not save if first name is blank' do
-      # @user_params[:first_name] = nil
-      # @user = User.create(@user_params)
-      @user = User.new first_name: nil, last_name: 'Li', email: 'test@test.test', password: 'password', password_confirmation: 'password'
-      @user.save
-
+      @user_params[:first_name] = nil
+      @user = User.create(@user_params)
+      
       expect(@user.errors.full_messages).to include("First name can't be blank")
     end
 
