@@ -95,5 +95,13 @@ RSpec.describe User, type: :model do
 
       expect(@user).to eql(@auth)
     end
+
+    it 'should allow login even if email in the the wrong case' do
+      @user = User.create(@user_params)
+      @auth = User.authenticate_with_credentials('TEST@TEST.TEST', 'password')
+
+      expect(@user).to eql(@auth)
+    end
+
   end
 end
