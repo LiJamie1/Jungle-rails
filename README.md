@@ -5,6 +5,13 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 This project was done during my web development bootcamp at Lighthouse Labs to learn Ruby/Rails
 
 ---
+# Stack
+- Ruby
+- Rails
+- ERB
+- Capybara, Poltergeist, PhantomJS, DatabaseCleaner
+
+---
 
 # Features Implemented
 ### Adding new pages:
