@@ -19,12 +19,13 @@ RSpec.feature "Visitor navigates to product page", type: :feature, js: true do
   scenario "They see a product" do
     # ACT
     visit products_path
+
     click_link('Details', match: :first)
 
     # DEBUG / VERIFY
     save_screenshot 'product_details.png'
 
-    expect(page).to have_html 'article.products'
+    expect(page).to have_css 'article.product'
   end
 
 end
